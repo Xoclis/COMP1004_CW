@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Tracker</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <nav>
+        <div class="brand">
+            LOGO
+        </div>
+        <ul>
+          <li><a class="nav-item active" href="#" onclick="changeView(event)" name="dashboard">ICON | Dashboard</a></li>
+          <li><a class="nav-item" href="#" onclick="changeView(event)" name="budget">ICON | Budget Tracker</a></li>
+          <li><a class="nav-item" href="#" onclick="changeView(event)" name="income">ICON | Income Tracker</a></li>
+          <li><a class="nav-item" href="#" onclick="changeView(event)" name="expense">ICON | Expense Tracker</a>
+      </nav>
+      
+    </div>
+    <div id="viewport" class="main-content">
+      <!--<h1>Heading Populated by JS</h1>
+      <p>This is where the main content will be displayed.</p>-->
+    </div>
+    <div id="notification" class="msg-success">Successful Message</div>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>
