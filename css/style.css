@@ -1,3 +1,4 @@
+/* Page Style */
 body {
     margin: 0;
     font-family: sans-serif;
@@ -7,7 +8,8 @@ body {
     display: flex;
     height: 100vh;
   }
-  
+
+  /* Navigation Bar */
   .sidebar {
     background-color: #f0f0f0;
     width: 200px;
@@ -45,10 +47,48 @@ body {
     color: #007bff;
   }
   
+.auth-links {
+  background-color: #f0f0f0;
+  width: 200px;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+  .icon {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    vertical-align: middle;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .house-solid {
+    background-image: url('../img/Nav/house-solid.svg'); 
+  }
+
+  .hand-holding-dollar-solid{
+    background-image: url('../img/Nav/hand-holding-dollar-solid.svg');
+  }
+
+  .piggy-bank-solid{
+    background-image: url('../img/Nav/piggy-bank-solid.svg');
+  }
+
+  .money-bill-trend-up-solid {
+    background-image: url('../img/Nav/money-bill-trend-up-solid.svg');
+  }
+
+  /* Viewport */
+
   .main-content {
     flex: 1;
     padding: 20px;
   }
+
+  /* Notifications */
   
   #notification {
     position: fixed;
@@ -66,3 +106,5 @@ body {
     background-color: rgb(157, 255, 128); 
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   }
+
+  /* BUDGET TRACKER */

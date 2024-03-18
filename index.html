@@ -14,10 +14,16 @@
             LOGO
         </div>
         <ul>
-          <li><a class="nav-item active" href="#" onclick="changeView(event)" name="dashboard">ICON | Dashboard</a></li>
-          <li><a class="nav-item" href="#" onclick="changeView(event)" name="budget">ICON | Budget Tracker</a></li>
-          <li><a class="nav-item" href="#" onclick="changeView(event)" name="income">ICON | Income Tracker</a></li>
-          <li><a class="nav-item" href="#" onclick="changeView(event)" name="expense">ICON | Expense Tracker</a>
+          <li><a class="nav-item active" href="#" onclick="changeView(event)" name="dashboard"><span class="icon house-solid"></span> | Dashboard</a></li>
+          <li><a class="nav-item" href="#" onclick="changeView(event)" name="budget"><span class="icon piggy-bank-solid"></span> | Budget Tracker</a></li>
+          <li><a class="nav-item" href="#" onclick="changeView(event)" name="income"> <span class="icon money-bill-trend-up-solid"></span> | Income Tracker</a></li>
+          <li><a class="nav-item" href="#" onclick="changeView(event)" name="expense"> <span class="icon hand-holding-dollar-solid"></span> | Expense Tracker</a>
+            </li>
+        </ul>
+        <ul class="auth-links">
+            <li><a class="nav-item" href="#" name="signin">Sign In</a></li>
+            <li><a class="nav-item" href="#" name="register">Register</a></li>
+        </ul>
       </nav>
       
     </div>
@@ -28,5 +34,19 @@
     <div id="notification" class="msg-success">Successful Message</div>
   </div>
   <script src="js/main.js"></script>
+
+  <script src="js/views/dashboard.js"></script>
+  <script src="js/views/trackers/budgetTracker.js"></script>
+  <script src="js/views/trackers/incomeTracker.js"></script>
+  <script src="js/views/trackers/expenseTracker.js"></script>
+  <script src="js/views/auth/login.js"></script>
+  <script src="js/views/auth/register.js"></script>
+
+  <script src="js/auth/login.js"></script>
+  <script src="js/auth/register.js"></script>
+
+  <script src="js/trackers/budgetTracker.js"></script>
+  <script src="js/trackers/incomeTracker.js"></script>
+  <script src="js/trackers/expenseTracker.js"></script>
 </body>
 </html>
