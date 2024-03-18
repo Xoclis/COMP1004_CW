@@ -34,7 +34,7 @@ function changeView(e) {
     } else if (targetName === "income" && viewSelector !== 2) {
         viewSelector = 2;
         viewport.innerHTML = incomeTracker();
-       
+       initialiseIncomeTracker();
     } else if (targetName === "expense" && viewSelector !== 3) {
         viewSelector = 3;
         viewport.innerHTML = expenseTracker();
