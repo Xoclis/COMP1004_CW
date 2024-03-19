@@ -1,0 +1,14 @@
+{
+    "expenses": [
+        {
+            "550e8400-e29b-41d4-a716-446655440000":[
+                {
+                    "uuid":"2bc8852f-23e2-4e10-8832-bc2d8b93e4c0",
+                    "expense_name": "car",
+                    "expense_amount": 200,
+                    "expense_Date": "24/02/2024"
+                }
+            ]
+        }
+    ]
+}

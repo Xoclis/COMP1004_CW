@@ -29,3 +29,7 @@ function initialiseExpenseTracker() {
       tableBody.appendChild(newRow);
   });
 }
+
+function getExpenses() {
+  
+}
