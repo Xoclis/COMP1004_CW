@@ -1,0 +1,28 @@
+{
+    "incomes": {
+        "550e8400-e29b-41d4-a716-446655440000":[   
+            {
+                "uuid": "ced4b49f-b958-438b-806f-6aa87f892eab",
+                "income_name": "Work",
+                "income_amount": 2001
+            },
+            {
+                "uuid": "1222f190-71ea-4c86-8706-8e950468733d",
+                "income_name": "Side Hustle",
+                "income_amount": 4001
+            }
+        ],
+        "550e8400-e29b-41d4-a716-446655440001":[   
+            {
+                "uuid": "e1af8fd7-5c76-422f-b894-10a90a5fe454",
+                "income_name": "Tax Return",
+                "income_amount": 2002
+            },
+            {
+                "uuid": "1511b3fd-64a7-455c-bf07-b1292c6069fc",
+                "income_name": "Refund",
+                "income_amount": 4004
+            }
+        ]
+    }
+}
