@@ -43,8 +43,28 @@ app.post('/trackers/income', async(req, res) => {
     else res.status(200).json(records);
 });
 
-app.post('/trackers/income', async(req, res) => {
-    res.sendStatus(200);
+app.post('/trackers/submitIncome', async(req, res) => {
+    let clientJson = await tools.getJson('./database/income.json');
+
+    const incomes = clientJson['incomes'];
+    for (const uuid in incomes)
+    {
+        if(uuid === req.body.uuid)
+        {
+            data = incomes[req.body.uuid];
+            data.push({
+                "uuid": tools.generateUUID(),
+                "income_name": req.body.name,
+                "income_amount": req.body.amount        
+            });
+            await tools.writeJson('./database/income.json', clientJson);
+
+            res.status(200).json({"success": "Income appended successfully"});
+            return;
+        }
+    }
+    
+   res.status(404).json({"error:": "User not found!"});
 });
 
 app.post('/trackers/expense', async(req, res) => {
@@ -54,7 +74,6 @@ app.post('/trackers/expense', async(req, res) => {
     
     const records = [];
 
-    console.log(expenses);
     for (const uuid in expenses)
         if(uuid === req.body.uuid)
             for(const i in expenses[uuid])
@@ -71,8 +90,29 @@ app.post('/trackers/expense', async(req, res) => {
     else res.status(200).json(records);
 });
 
-app.post('/trackers/appendExpense', async(req, res) => {
-    res.sendStatus(200);
+app.post('/trackers/submitExpense', async(req, res) => {
+    let clientJson = await tools.getJson('./database/expense.json');
+
+    const expenses = clientJson['expenses'];
+    for (const uuid in expenses)
+    {
+        if(uuid === req.body.uuid)
+        {
+            data = expenses[req.body.uuid];
+            data.push({
+                "uuid": tools.generateUUID(),
+                "expense_name": req.body.name,
+                "expense_amount": req.body.amount,
+                "expense_date": req.body.date
+            });
+            await tools.writeJson('./database/expense.json', clientJson);
+
+            res.status(200).json({"success": "Expense appended successfully"});
+            return;
+        }
+    }
+    
+   res.status(404).json({"error:": "User not found!"});
 });
 
 app.post('/login', async (req, res) => {});

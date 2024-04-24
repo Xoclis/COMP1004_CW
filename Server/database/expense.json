@@ -1,26 +1,38 @@
 {
-    "expenses":{
-        "550e8400-e29b-41d4-a716-446655440000":[
-            {
-                "uuid":"2bc8852f-23e2-4e10-8832-bc2d8b93e4c0",
-                "expense_name": "car",
-                "expense_amount": 200,
-                "expense_date": "24/02/2024"
-            }
-        ],
-        "550e8400-e29b-41d4-a716-446655440001":[
-            {
-                "uuid":"2bc8852f-23e2-4e10-8832-bc2d8b93e4c1",
-                "expense_name": "groceries",
-                "expense_amount": 228,
-                "expense_date": "24/02/2024"
-            },
-            {
-                "uuid":"2bc8852f-23e2-4e10-8832-bc2d8b93e4a3",
-                "expense_name": "rent",
-                "expense_amount": 400,
-                "expense_date": "24/02/2024"
-            }
-        ]
-    }
+  "expenses": {
+    "550e8400-e29b-41d4-a716-446655440000": [
+      {
+        "uuid": "2bc8852f-23e2-4e10-8832-bc2d8b93e4c0",
+        "expense_name": "car",
+        "expense_amount": 200,
+        "expense_date": "24/02/2024"
+      },
+      {
+        "uuid": "1154da09-366c-4917-ad0a-85bf8865a659",
+        "expense_name": "hello",
+        "expense_amount": 2,
+        "expense_date": "26/01/2000"
+      },
+      {
+        "uuid": "97abbd49-b37b-46c4-ae97-e13c8a7ef71a",
+        "expense_name": "A",
+        "expense_amount": 2,
+        "expense_date": "01/01/2000"
+      }
+    ],
+    "550e8400-e29b-41d4-a716-446655440001": [
+      {
+        "uuid": "2bc8852f-23e2-4e10-8832-bc2d8b93e4c1",
+        "expense_name": "groceries",
+        "expense_amount": 228,
+        "expense_date": "24/02/2024"
+      },
+      {
+        "uuid": "2bc8852f-23e2-4e10-8832-bc2d8b93e4a3",
+        "expense_name": "rent",
+        "expense_amount": 400,
+        "expense_date": "24/02/2024"
+      }
+    ]
+  }
 }
