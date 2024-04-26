@@ -2,10 +2,18 @@
 var viewport;
 var viewSelector = 0;
 
+var auth = {
+        isAuthed: false,
+        userUUID: ''
+    };
+
 document.addEventListener('DOMContentLoaded', function() {
     // Number to tell the view is defaulted.
     viewport = document.querySelector("#viewport");
     viewport.innerHTML = dashboard();
+
+    const welcomeNI = document.querySelector('#welcome');
+    welcomeNI.style.display = 'none';
 });
 
 function changeView(e) {
@@ -39,13 +47,30 @@ function changeView(e) {
         viewSelector = 3;
         viewport.innerHTML = expenseTracker();
         initialiseExpenseTracker();
-    } else if (targetName === "signin" && viewSelector !== 4) {
+    } else if (targetName === "signin" && viewSelector !== 4 && !auth.isAuthed) {
         viewSelector = 4;
         viewport.innerHTML = login();
         initialiseLoginSubmission();
-    } else if (targetName === "register" && viewSelector !== 5) {
+    } else if (targetName === "register" && viewSelector !== 5 && !auth.isAuthed) {
         viewSelector = 5;
         viewport.innerHTML = register();
         initialiseRegisterSubmission();
     }
+
+    authFormConfiguration();
+}
+
+function authFormConfiguration() {
+    let inputs = document.querySelectorAll(".auth-group .form-group input");
+    
+    inputs.forEach((input) => {
+        input.addEventListener('change', function() {
+            let labels = document.querySelectorAll(".auth-group .form-group label");
+            
+            labels.forEach((label) => {
+                if(input.value !== "") label.classList.add("active");
+                else label.classList.remove("active");
+            });
+        });
+    });
 }

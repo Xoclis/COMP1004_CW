@@ -1,18 +1,18 @@
 function initialiseExpenseTracker() {
   expenseFormConfiguration();
-  updateExpense();
+  if (auth.isAuthed) updateExpense();
 }
 
 function expenseFormConfiguration() {
   const notificationEl = document.querySelector('#notification');
   const form = document.querySelector('#expense-form');
   const tableBody = document.querySelector('#expense-table');
-  
+
   const expenseNameInput = document.querySelector('#inputName');
   const expenseAmountInput = document.querySelector('#inputAmount');
   const expenseDateInput = document.querySelector('#inputDate');
-  
-  
+
+
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
 
@@ -25,8 +25,7 @@ function expenseFormConfiguration() {
     expenseDate = new Date(Date.parse(expenseDate));
     expenseDate = expenseDate.toLocaleDateString('en-GB');
 
-    if(expenseName !== "" && expenseAmount !== undefined && expenseDate !== "Invalid Date")
-    { 
+    if (expenseName !== "" && expenseAmount !== undefined && expenseDate !== "Invalid Date") {
       const newRow = document.createElement('tr');
       newRow.innerHTML = `
         <td>${expenseName}</td>
@@ -36,22 +35,31 @@ function expenseFormConfiguration() {
 
       tableBody.appendChild(newRow);
 
-      try {
-        const res = await submitExpense('550e8400-e29b-41d4-a716-446655440000', expenseName, expenseAmount, expenseDate);
+      if (auth.isAuthed) {
+        try {
+          const res = await submitExpense(auth.userUUID, expenseName, expenseAmount, expenseDate);
 
-        notificationEl.innerText = "Success: " + res['success'];
-        notificationEl.classList.remove('msg-error');
-        notificationEl.classList.add('msg-success');
-      } catch (error) {
-        notificationEl.innerText = "Error: User is not found.";
-        notificationEl.classList.remove('msg-success');
-        notificationEl.classList.add('msg-error');
+          notificationEl.innerText = "Success: " + res['success'];
+          notificationEl.classList.remove('msg-error');
+          notificationEl.classList.remove('msg-warn');
+          notificationEl.classList.add('msg-success');
+        } catch (error) {
+          notificationEl.innerText = "Error: User is not found.";
+          notificationEl.classList.remove('msg-success');
+          notificationEl.classList.remove('msg-warn');
+          notificationEl.classList.add('msg-error');
+        }
+      } else {
+        notificationEl.innerText = "Make a account to record future expense tracking.";
+        notificationEl.classList.remove("msg-error");
+        notificationEl.classList.remove("msg-success");
+        notificationEl.classList.add("msg-warn");
       }
-    }
 
-    else {
+    } else {
       notificationEl.innerText = "Error: Name, amount, and date must be filled in.";
       notificationEl.classList.remove('msg-success');
+      notificationEl.classList.remove('msg-warn');
       notificationEl.classList.add('msg-error');
     }
   });
@@ -63,7 +71,7 @@ async function updateExpense() {
 
   tableBody.innerHTML = '';
 
-  const expenseRecords = await fetchExpense('550e8400-e29b-41d4-a716-446655440000');
+  const expenseRecords = await fetchExpense(auth.userUUID);
 
   expenseRecords.forEach(record => {
     const newRow = document.createElement('tr');
@@ -80,7 +88,9 @@ async function updateExpense() {
 
 async function fetchExpense(uuid) {
   const url = 'http://localhost:3000/trackers/expense';
-  const headers = { 'Content-Type': 'application/json' };
+  const headers = {
+    'Content-Type': 'application/json'
+  };
 
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
@@ -90,11 +100,11 @@ async function fetchExpense(uuid) {
       xhr.setRequestHeader(key, headers[key]);
     });
 
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState === XMLHttpRequest.DONE) { 
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status === 200) {
           const responseData = JSON.parse(xhr.responseText);
-          
+
           resolve(responseData);
         } else {
           console.error('Failed to fetch data:', xhr.statusText);
@@ -103,14 +113,18 @@ async function fetchExpense(uuid) {
       }
     };
 
-    const data = JSON.stringify({ uuid: uuid }); 
+    const data = JSON.stringify({
+      uuid: uuid
+    });
     xhr.send(data);
   });
 }
 
 async function submitExpense(uuid, name, amount, date) {
   const url = 'http://localhost:3000/trackers/submitExpense';
-  const headers = { 'Content-Type': 'application/json' };
+  const headers = {
+    'Content-Type': 'application/json'
+  };
 
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
@@ -120,8 +134,8 @@ async function submitExpense(uuid, name, amount, date) {
       xhr.setRequestHeader(key, headers[key]);
     });
 
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState === XMLHttpRequest.DONE) { 
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status === 200) {
           const responseData = JSON.parse(xhr.responseText);
           resolve(responseData);
@@ -132,7 +146,12 @@ async function submitExpense(uuid, name, amount, date) {
       }
     };
 
-    const data = JSON.stringify({ uuid: uuid, name: name, amount: amount, date: date }); 
+    const data = JSON.stringify({
+      uuid: uuid,
+      name: name,
+      amount: amount,
+      date: date
+    });
     xhr.send(data);
   });
 }

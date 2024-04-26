@@ -38,5 +38,8 @@ module.exports = {
                 v = c == 'x' ? r : (r & 0x3 | 0x8);
             return v.toString(16);
         });
+    },
+    containsAtSymbol: function (text) {
+        return text.includes('@');
     }
 }

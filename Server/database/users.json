@@ -1,11 +1,28 @@
-{ 
-    "users": [ 
-        { 
-            "uuid": "550e8400-e29b-41d4-a716-446655440000",
-            "firstname": "George", 
-            "lastname": "Thomas", 
-            "username": "gt780", 
-            "password": "pass"
-        }
-    ]
+{
+  "users": [
+    {
+      "uuid": "550e8400-e29b-41d4-a716-446655440000",
+      "firstname": "George",
+      "lastname": "Thomas",
+      "username": "gt780",
+      "email": "george.thomas@fcorp.co.uk",
+      "password": "pass"
+    },
+    {
+      "uuid": "d8a13dba-99d3-4ec3-93ea-6ea946e4a3a0",
+      "firstname": "John",
+      "lastname": "Cena",
+      "username": "yeyeye",
+      "email": "johncena@gmail.coa",
+      "password": "secretpassword"
+    },
+    {
+      "uuid": "747babe2-ff9e-4db4-b93b-4153e42dd37c",
+      "firstname": "bob",
+      "lastname": "john",
+      "username": "bobjohn",
+      "email": "johnbob@gmail.com",
+      "password": "1234"
+    }
+  ]
 }
