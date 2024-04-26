@@ -33,6 +33,34 @@
         "expense_amount": 400,
         "expense_date": "24/02/2024"
       }
+    ],
+    "d8a13dba-99d3-4ec3-93ea-6ea946e4a3a0": [
+      {
+        "uuid": "d83c0e0c-6bb7-4031-b114-8bd3608e54b8",
+        "expense_name": "Rent",
+        "expense_amount": 550,
+        "expense_date": "03/03/3000"
+      },
+      {
+        "uuid": "b9e87542-5c7a-4186-b1c5-dc7313af19f6",
+        "expense_name": "Rent",
+        "expense_amount": 554,
+        "expense_date": "03/03/3000"
+      },
+      {
+        "uuid": "f40212f6-902b-40e8-8dea-2da19c197ec2",
+        "expense_name": "BBQ",
+        "expense_amount": 2000,
+        "expense_date": "03/03/3000"
+      }
+    ],
+    "747babe2-ff9e-4db4-b93b-4153e42dd37c": [
+      {
+        "uuid": "2aafcb5b-7bcf-4697-9dd3-8931c6a29f02",
+        "expense_name": "rent",
+        "expense_amount": 968,
+        "expense_date": "20/10/2021"
+      }
     ]
   }
 }
