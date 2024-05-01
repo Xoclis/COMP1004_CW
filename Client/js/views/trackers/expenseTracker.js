@@ -1,3 +1,4 @@
+// THE HTML COMPONENT FOR ExpenseTracker
 function expenseTracker() { return `
 <div style="margin-top: 20px">
   <h1>Expense Tracking</h1>

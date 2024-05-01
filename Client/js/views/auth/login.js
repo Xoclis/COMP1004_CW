@@ -1,3 +1,4 @@
+// THE HTML COMPONENT FOR LOGIN
 function login() {
   return `
   <form class="auth-group" id="login-form" method="POST">

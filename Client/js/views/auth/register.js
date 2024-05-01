@@ -1,3 +1,4 @@
+// THE HTML COMPONENT FOR REGISTER
 function register() { 
   return `
     <form class="auth-group" id="register-form" method="POST">

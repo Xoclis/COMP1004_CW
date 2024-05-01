@@ -129,8 +129,12 @@ app.post('/login', async (req, res) => {
             if(user['email'] == req.body.username && user['password'] == req.body.password)
             {  
                 const name = `${user['firstname']} ${user['lastname']}`;
+                const data = {'uuid': user['uuid'], 'name': name};
 
-                res.status(200).json({'uuid': user['uuid'], 'name': name});
+                if(user['admin'])
+                    data['admin'] = true;
+
+                res.status(200).json(data);
 
                 incorrect = false;
 
@@ -140,8 +144,12 @@ app.post('/login', async (req, res) => {
         } else {
             if(user['username'] == req.body.username && user['password'] == req.body.password) {
                 const name = `${user['firstname']} ${user['lastname']}`;
+                const data = {'uuid': user['uuid'], 'name': name}
 
-                res.status(200).json({'uuid': user['uuid'], 'name': name});
+                if(user['admin'])
+                    data['admin'] = true;
+
+                res.status(200).json(data);
 
                 incorrect = false;
 
@@ -187,3 +195,67 @@ app.post('/register', async (req, res) => {
         return;
     }
 );
+
+app.post('/admin/fetchUsers', async (req, res) => {
+    let clientJson = await tools.getJson('./database/users.json');
+    const users = clientJson['users'];
+
+    let authorised = false;
+    users.forEach((user) => {
+        if(user.uuid === req.body.uuid && user.admin)
+            authorised = true;
+    });
+   
+
+    if(!authorised) {
+        res.status(401).json({"unauthorised": "Unauthorised Access Detected! Incident Recorded."});
+        return;
+    }
+
+    const data = {};
+    users.forEach((user) => {
+        data[user.uuid] = user;
+     });
+
+    res.status(200).json({'users': data});
+});
+
+app.post('/admin/editUser', async (req, res) => {
+    let clientJson = await tools.getJson('./database/users.json');
+    const users = clientJson['users'];
+    
+    let authorised = false;
+    users.forEach((user) => {
+        if(user.uuid === req.body.uuid && user.admin)
+            authorised = true;
+    });
+   
+
+    if(!authorised) {
+        res.status(401).json({"unauthorised": "Unauthorised Access Detected! Incident Recorded."});
+        return;
+    }
+
+    const data = {};
+    users.forEach((user) => {
+        if(user.uuid === req.body.editUUID)
+        {
+            if(req.body.editUsername !== undefined)
+                user.username = req.body.editUsername;
+            if(req.body.editFirstName !== undefined)
+                user.firstname = req.body.editFirstName;
+            if(req.body.editLastName !== undefined)
+                user.lastname = req.body.editLastName;
+            if(req.body.editEmail !== undefined)
+                user.email = req.body.editEmail;
+            if(req.body.editPassword !== undefined)
+                user.password = req.body.editPassword;
+        
+            data[user.uuid] = user;
+        }
+     });
+
+    await tools.writeJson('./database/users.json', clientJson);
+
+    res.status(200).json(data);
+});

@@ -1,3 +1,4 @@
+// THE HTML COMPONENT FOR IncomeTracker
 function incomeTracker() { return `
 <div style="margin-left: auto; margin-right: auto; max-width: 600px">
   <h1>Income Tracking</h1>

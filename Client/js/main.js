@@ -4,7 +4,8 @@ var viewSelector = 0;
 
 var auth = {
         isAuthed: false,
-        userUUID: ''
+        userUUID: '',
+        isAdmin: false
     };
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -55,6 +56,10 @@ function changeView(e) {
         viewSelector = 5;
         viewport.innerHTML = register();
         initialiseRegisterSubmission();
+    } else if (targetName === "admin" && viewSelector !== 6 && auth.isAdmin) {
+        viewSelector = 6;
+        viewport.innerHTML = admin();
+        initialiseAdminFunctions();
     }
 
     authFormConfiguration();

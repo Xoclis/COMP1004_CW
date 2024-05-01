@@ -1,3 +1,4 @@
+// THE HTML COMPONENT FOR Dashboard
 function dashboard() { return `
 <div id="dashboard">
   <h1>Master Your Finances with Our Advanced Budget Planner</h1>

@@ -2,10 +2,11 @@
   "users": [
     {
       "uuid": "550e8400-e29b-41d4-a716-446655440000",
+      "admin": true,
       "firstname": "George",
-      "lastname": "Thomas",
-      "username": "gt780",
-      "email": "george.thomas@fcorp.co.uk",
+      "lastname": "Silcox",
+      "username": "gs780",
+      "email": "george.s@fcorp.co.uk",
       "password": "pass"
     },
     {
@@ -18,11 +19,19 @@
     },
     {
       "uuid": "747babe2-ff9e-4db4-b93b-4153e42dd37c",
+      "firstname": "John",
+      "lastname": "Davies",
+      "username": "johnbob",
+      "email": "jo.davie@yahoo.com",
+      "password": "0222"
+    },
+    {
+      "uuid": "b8ff6ace-1d19-40e4-8816-1d3da6039639",
       "firstname": "bob",
-      "lastname": "john",
-      "username": "bobjohn",
-      "email": "johnbob@gmail.com",
-      "password": "1234"
+      "lastname": "jones",
+      "username": "bobj",
+      "email": "bobjones@gmail.com",
+      "password": "12345"
     }
   ]
 }

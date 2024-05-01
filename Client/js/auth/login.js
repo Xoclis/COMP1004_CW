@@ -37,6 +37,9 @@ function loginFormConfiguration() {
 
                     auth.isAuthed = true;
                     auth.userUUID = responseData['uuid'];
+                    
+                    if(responseData['admin'] !== undefined && responseData['admin'])
+                        auth.isAdmin = true;
 
                     viewSelector = 0;
                     viewport.innerHTML = dashboard();
@@ -44,6 +47,13 @@ function loginFormConfiguration() {
                     const welcomeNI = document.querySelector('#welcome');
                     welcomeNI.innerHTML = `Welcome ${responseData['name']}`;
                     welcomeNI.style.display = 'block';
+
+                    if(auth.isAdmin)
+                    {
+                        const adminNI = document.querySelector('#admin');
+                        adminNI.innerHTML = `Admin Board`;
+                        adminNI.style.display = 'block';
+                    }
 
                     const authLinks = document.querySelectorAll('.auth-links .auth');
 

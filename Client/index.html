@@ -69,22 +69,23 @@
                 href="#"
                 onclick="changeView(event)"
                 name="register"
-                >Register</a
-              >
+                >Register</a>
             </li>
             <li>
               <a id="welcome" class="nav-item" href="#" name="welcome"></a>
+              <a id="admin" class="nav-item" href="#" onclick="changeView(event)" name="admin"></a>
             </li>
           </ul>
+
+          
         </nav>
       </div>
-      <div id="viewport" class="main-content">
-        <!--<h1>Heading Populated by JS</h1>
-      <p>This is where the main content will be displayed.</p>-->
-      </div>
+      <div id="viewport" class="main-content"></div>
       <div id="notification" class="msg-success"></div>
     </div>
     <script src="js/main.js"></script>
+
+    <script src="js/admin/admin.js"></script>
 
     <script src="js/auth/login.js"></script>
     <script src="js/auth/register.js"></script>
@@ -99,5 +100,6 @@
     <script src="js/views/trackers/expenseTracker.js"></script>
     <script src="js/views/auth/login.js"></script>
     <script src="js/views/auth/register.js"></script>
+    <script src="js/views/admin/admin.js"></script>
   </body>
 </html>

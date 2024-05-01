@@ -1,3 +1,4 @@
+// THE HTML COMPONENT FOR BudgetTracker
 function budgetTracker() { return `
 <div style="margin: 0 auto; max-width: 800px">
   <h1 style="margin-top: 50px; text-align: center">Budget Calculator</h1>
