@@ -7,12 +7,13 @@ Very Bad	== 0%	> 250 */
 
 
 function initialiseBudgetTracker() {
+   
 
     const form = document.querySelector('#budget-form');
     const mIncomeInput = document.querySelector('#income');
     const rentInput = document.querySelector('#rent');
     const utilitiesInput = document.querySelector('#utilities');
-    const gorceriesInput = document.querySelector('#groceries');
+    const groceriesInput = document.querySelector('#groceries');
     const transportationInput = document.querySelector('#transportation');
     const entertainmentInput = document.querySelector('#entertainment');
     const savingsInput = document.querySelector('#savings');
@@ -25,18 +26,17 @@ function initialiseBudgetTracker() {
         const mIncome = parseFloat(mIncomeInput.value);
         const rent = parseFloat(rentInput.value);
         const utilities = parseFloat(utilitiesInput.value);
-        const groceries = parseFloat(gorceriesInput.value);
+        const groceries = parseFloat(groceriesInput.value);
         const transportation = parseFloat(transportationInput.value);
         const entertainment = parseFloat(entertainmentInput.value);
         const savings = parseFloat(savingsInput.value);
-    
+     
         const budget = mIncome - rent - utilities - groceries - transportation - entertainment;
         const optimiserPercent = SavingsOptimiser(budget);
         const savingsTotal = savings + (budget * optimiserPercent);
         const remainingFunds = budget - (budget * optimiserPercent);
     
-        if (tableBody.childNodes !== null)
-            tableBody.removeChild(tableBody.childNodes[0]); 
+        tableBody.innerHTML = ''; 
     
         const newRow = document.createElement('tr');
         newRow.innerHTML = `
